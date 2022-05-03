@@ -11,6 +11,10 @@ options:
       url: https://packages.confluent.io/maven/
 
 dependencies:
+  com.lihaoyi:
+    pprint:
+      lang: scala
+      version: "0.5.6"
 
 replacements:
   org.scala-lang:
