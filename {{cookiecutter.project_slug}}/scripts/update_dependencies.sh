@@ -5,11 +5,11 @@ echo -ne "\033[0m"
 set -e
 
 if [ "$(uname -s)" == "Linux" ]; then
-  BAZEL_DEPS_URL=https://github.com/johnynek/bazel-deps/releases/download/v0.1-13/bazel-deps-linux
-  BAZEL_DEPS_SHA256=e3993d5683884081af3076ce9d3dafdf7c6ba591bf12d7bb82cb5afd6a954681
+  BAZEL_DEPS_URL=https://maven.jtrim777.dev/releases/dev/jtrim777/bazeldeps/0.1.0/bazel-deps-linux
+  BAZEL_DEPS_SHA256=f2695b5ab2504449b8afc7dd84b6057e851414150793537541d57a65899fdaa7
 elif [ "$(uname -s)" == "Darwin" ]; then
-  BAZEL_DEPS_URL=https://github.com/johnynek/bazel-deps/releases/download/v0.1-13/bazel-deps-macos
-  BAZEL_DEPS_SHA256=a9189380ec1b2278234a24d29817fdb095e435ca66bd4aef80715a47110425cd
+  BAZEL_DEPS_URL=https://maven.jtrim777.dev/releases/dev/jtrim777/bazeldeps/0.1.0/bazel-deps-macos
+  BAZEL_DEPS_SHA256=299a21a9e8ab7a4ef34e8f32146a7915f74d3645494594424be7b73c5b735713
 else
   echo "Your platform '$(uname -s)' is unsupported, sorry"
   exit 1
@@ -25,7 +25,7 @@ cd $SCRIPT_LOCATION
 REPO_ROOT=$(git rev-parse --show-toplevel)
 
 BAZEL_DEPS_DIR="$HOME/.bazel-deps-cache"
-BAZEL_DEPS_PATH="${BAZEL_DEPS_DIR}/v0.1-13"
+BAZEL_DEPS_PATH="${BAZEL_DEPS_DIR}/v0.1.0"
 
 if [ ! -f ${BAZEL_DEPS_PATH} ]; then
   ( # Opens a subshell
