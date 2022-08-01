@@ -46,3 +46,24 @@ build_external_workspace(name = "third_party")
 
 load("//tools:bazeldist.bzl", "import_bazeldist")
 import_bazeldist()
+
+load("@bazeldist//maven:deps.bzl", "maven_artifacts_with_versions")
+load("@rules_jvm_external//:defs.bzl", "maven_install")
+maven_install(
+    artifacts = maven_artifacts_with_versions,
+    repositories = [
+        "https://repo1.maven.org/maven2",
+    ],
+    strict_visibility = True,
+    version_conflict_policy = "pinned",
+    fetch_sources = True,
+)
+
+load("@bazeldist//common:rules.bzl", "workspace_refs")
+workspace_refs(
+    name = "repo_workspace_refs"
+)
+
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories", "kt_register_toolchains")
+kotlin_repositories()
+kt_register_toolchains()

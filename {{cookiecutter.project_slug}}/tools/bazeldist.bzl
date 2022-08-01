@@ -8,11 +8,7 @@ def import_bazeldist():
         type = "zip",
         strip_prefix = "rules_kotlin-c2519b00299cff9df22267e8359784e9948dba67",
         sha256 = "1455f2ec4bf7ea12d2c90b0dfd6402553c3bb6cbc0271023e2e01ccdefb4a49a",
-    )
-
-    load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories", "kt_register_toolchains")
-    kotlin_repositories()
-    kt_register_toolchains()
+    )    
 
     http_archive(
         name = "rules_jvm_external",
@@ -32,18 +28,6 @@ def import_bazeldist():
         sha256 = "98c2549314d115550c697d378b4b583f2653ff82822660839a3940977aee2573",
     )
 
-    load("@bazeldist//maven:deps.bzl", "maven_artifacts_with_versions")
-    load("@rules_jvm_external//:defs.bzl", "maven_install")
-    maven_install(
-        artifacts = maven_artifacts_with_versions,
-        repositories = [
-            "https://repo1.maven.org/maven2",
-        ],
-        strict_visibility = True,
-        version_conflict_policy = "pinned",
-        fetch_sources = True,
-    )
-
     http_archive(
         name = "rules_pkg",
         urls = [
@@ -55,9 +39,4 @@ def import_bazeldist():
             "@bazeldist//:bazelbuild_rules_pkg-allow-long-filenames.patch",
         ],
         patch_args = ["-p1"],
-    )
-
-    load("@bazeldist//common:rules.bzl", "workspace_refs")
-    workspace_refs(
-        name = "repo_workspace_refs"
     )
