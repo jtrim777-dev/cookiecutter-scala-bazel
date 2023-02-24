@@ -24,8 +24,8 @@ def import_bazeldist():
     )
     http_archive(
         name = "bazeldist",
-        url = "https://maven.jtrim777.dev/releases/dev/jtrim777/bazeldist/0.1.0/bazeldist-all.tar.gz",
-        sha256 = "98c2549314d115550c697d378b4b583f2653ff82822660839a3940977aee2573",
+        url = "https://maven.jtrim777.dev/releases/dev/jtrim777/bazeldist/0.1.6/bazeldist-all.tar.gz",
+        #sha256 = "98c2549314d115550c697d378b4b583f2653ff82822660839a3940977aee2573",
     )
 
     http_archive(

@@ -8,6 +8,3 @@ if len(package_name) == 0:
 elif not re.match(package_regex, package_name):
     print("Error: %s is not a valid JVM package name" % package_name)
     sys.exit(1)
-else:
-    path = 'src/main/scala/' + package_name.replace('.', '/')
-    os.makedirs(path)

@@ -1,7 +1,7 @@
 options:
   buildHeader: [ "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")",
     "load(\"@io_bazel_rules_scala//scala:scala.bzl\", \"scala_library\")" ]
-  languages: [ "java", "scala:{{cookiecutter.scala_version}}" ]
+  languages: [ "java", "scala:2.13.6" ]
   resolvers:
     - id: "mavencentral"
       type: "default"
@@ -9,6 +9,7 @@ options:
     - id: "confluent"
       type: "default"
       url: https://packages.confluent.io/maven/
+  thirdPartyDirectory: ""
 
 dependencies:
   com.lihaoyi:
