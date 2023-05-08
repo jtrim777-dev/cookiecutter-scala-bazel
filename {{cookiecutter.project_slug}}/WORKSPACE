@@ -31,9 +31,6 @@ http_archive(
 load("@io_bazel_rules_scala//:scala_config.bzl", "scala_config")
 scala_config(scala_version = "{{ cookiecutter.scala_version }}")
 
-#load("@io_bazel_rules_scala//scala:scala.bzl", "scala_repositories")
-#scala_repositories()
-
 load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
 rules_proto_dependencies()
 rules_proto_toolchains()
@@ -43,8 +40,7 @@ maven_dependencies()
 load("//3rdparty:target_file.bzl", "build_external_workspace")
 build_external_workspace(name = "ext")
 
-load("//tools:scala.bzl", "project_scala")
-register_toolchains("project_scala")
+register_toolchains("//tools:project_scala")
 
 load("//tools:bazeldist.bzl", "import_bazeldist")
 import_bazeldist()

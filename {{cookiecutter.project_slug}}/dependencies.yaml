@@ -17,23 +17,16 @@ dependencies:
       lang: scala
       version: "0.5.6"
 
-replacements:
   org.scala-lang:
-    scala-compiler:
+    scala:
       lang: scala/unmangled
-      target: "@io_bazel_rules_scala_scala_compiler//:io_bazel_rules_scala_scala_compiler"
-    scala-library:
-      lang: scala/unmangled
-      target: "@io_bazel_rules_scala_scala_library//:io_bazel_rules_scala_scala_library"
-    scala-reflect:
-      lang: scala/unmangled
-      target: "@io_bazel_rules_scala_scala_reflect//:io_bazel_rules_scala_scala_reflect"
+      modules: [ "compiler", "library", "reflect" ]
+      version: "{{ cookiecutter.scala_version }}"
 
   org.scala-lang.modules:
     scala-parser-combinators:
       lang: scala
-      target:
-        "@io_bazel_rules_scala_scala_parser_combinators//:io_bazel_rules_scala_scala_parser_combinators"
+      version: "2.2.0"
     scala-xml:
       lang: scala
-      target: "@io_bazel_rules_scala_scala_xml//:io_bazel_rules_scala_scala_xml"
+      version: "2.1.0"
